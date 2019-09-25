@@ -5,7 +5,7 @@ instagram = Instagram()
 
 # For getting information about account you don't need to auth:
 
-f = open('accounts.txt', "r")
+f = open('c.txt', "r")
 lines = f.readlines()
 
 print(lines)
@@ -19,9 +19,11 @@ for line in lines:
 
     print(data)
 
+    # location = instagram.get_location_by_id(account.identifier)
+    # print(location)
+
     output.append(data)
     o = json.dumps(output)
-
 
 
 try:
@@ -29,5 +31,3 @@ try:
         tf.write(o)
 except BaseException as e:
     print("Error on_data : %s" % str(e))
-
-
