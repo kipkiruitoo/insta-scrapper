@@ -15,7 +15,7 @@ for line in lines:
     account = instagram.get_account(line.replace('\n', ''))
 
     data = {"id": account.identifier, "username": account.username,
-            "follower_count": account.followed_by_count, "full_name": account.full_name}
+            "follower_count": account.followed_by_count, "biography":account.biography , "full_name":  account.full_name}
 
     print(data)
 
