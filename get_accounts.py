@@ -1,5 +1,6 @@
 from context import Instagram  # pylint: disable=no-name-in-module
 import json
+import re
 # If account is public you can query Instagram without auth
 instagram = Instagram()
 
@@ -13,11 +14,12 @@ output = []
 for line in lines:
     print(line)
     account = instagram.get_account(line.replace('\n', ''))
+    reg = re.compile("(\d{2}\d{5}\d{4})")
 
     data = {"id": account.identifier, "username": account.username,
             "follower_count": account.followed_by_count, "biography":account.biography , "full_name":  account.full_name}
 
-    print(data)
+    # print(data)
 
     # location = instagram.get_location_by_id(account.identifier)
     # print(location)
